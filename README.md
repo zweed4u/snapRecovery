@@ -15,6 +15,5 @@ Pre. Check traffic for necessary setup
 
 ----
 ## usage
-# headers
 
     python 6dig.py

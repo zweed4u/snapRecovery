@@ -1,0 +1,21 @@
+Selenium https://accounts.snapchat.com/accounts/password_reset_request for captcha
+email post
+https://accounts.snapchat.com/accounts/password_reset_request
+    emailaddress:zdw7287@rit.edu
+    g-recaptcha-response:03AHJ_VutySv0W7akdARLRY_VqPxt--
+    xsrf_token:lSqQjmccqp5xHP8fw  #from parse of selenium page
+
+response_headers location
+
+transfer cookies to requests python lib
+use code generator
+response_headers location=>https://accounts.snapchat.com/accounts/password_reset_request/verify?username=zdw7287%40rit.edu&phone&pre_auth_token=qbrPT7dGa-R&two_fa_current_mechanism=otp
+
+form data in post 
+    fa_code:123321 #this is the code from generated
+    action:verify
+    tfa_mechanism:otp
+    xsrf_token:duDTrWePGBb4iOSOQ #fetched from prev page
+    username:zdw7287@rit.edu
+    pre_auth_token:qbrPT7dGa-R #parse url or prev resp
+    continue:/accounts/welcome

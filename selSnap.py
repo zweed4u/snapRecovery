@@ -48,7 +48,16 @@ session.cookies.clear();
 url='https://accounts.snapchat.com/accounts/password_reset_request'
 print "Making recaptcha POST with email..."
 headers={
-    'user-agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36'
+    'accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'accept-encoding':'gzip, deflate, sdch, br',
+    'accept-language':'en-US,en;q=0.8',
+    'content-type':'application/x-www-form-urlencoded',
+    'cookie':'xsrf_token='+xsrf_token,
+    'origin':'https://accounts.snapchat.com',
+    'referer':'https://accounts.snapchat.com/',
+    'upgrade-insecure-requests':'1',
+    'user-agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36',
+    'x-api-key':'88f3559a58cc43f59f6f2f35af663470'
 }
 data={
     'emailaddress':email,

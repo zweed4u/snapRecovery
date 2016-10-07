@@ -6,7 +6,7 @@
 import os, json, requests
 from selenium import webdriver
 from requests.utils import dict_from_cookiejar
-
+email=raw_input('Email: ')
 tokenContainer=[]
 driverBin=os.path.expanduser("~/Desktop/chromedriver")
 driver=webdriver.Chrome(driverBin)
@@ -51,7 +51,7 @@ headers={
     'user-agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36'
 }
 data={
-    'emailaddress':'zdw7287@rit.edu',
+    'emailaddress':email,
     'g-recaptcha-response':new_token_value,
     'xsrf_token':xsrf_token
 }
@@ -59,24 +59,3 @@ r=session.post(url,data=data,headers=headers)
 print r.status_code
 print r.url
 print r.content
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -3,6 +3,7 @@
 # Uses a webdriver
 # Place chrome driver binary on Desktop
 # Binary used here: https://www.sendspace.com/file/b5bkei
+# Binary/Chrome version may give errors - try different binaries here: http://chromedriver.storage.googleapis.com/index.html
 import os, json, requests
 from selenium import webdriver
 from requests.utils import dict_from_cookiejar
@@ -11,6 +12,9 @@ tokenContainer=[]
 driverBin=os.path.expanduser("~/Desktop/chromedriver")
 driver=webdriver.Chrome(driverBin)
 driver.get('https://accounts.snapchat.com/accounts/password_reset_request')
+field=driver.find_element_by_name('emailaddress')
+field.clear()
+field.send_keys(email)
 driver.switch_to_frame('undefined')
 token_value = driver.find_element_by_id('recaptcha-token').get_attribute('value')
 driver.switch_to_default_content()
@@ -57,7 +61,7 @@ headers={
     'referer':'https://accounts.snapchat.com/',
     'upgrade-insecure-requests':'1',
     'user-agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36',
-    'x-api-key':'88f3559a58cc43f59f6f2f35af663470'
+    #'x-api-key':'88f3559a58cc43f59f6f2f35af663470'  --not always needed? check if response is good without - make second attempt with if needed
 }
 data={
     'emailaddress':email,
